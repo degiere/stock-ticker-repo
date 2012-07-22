@@ -13,6 +13,6 @@ Resources
 
 Installing and running
 ======================
-$ mvn test
-$ mvn jar:jar
-$ mvn exec:java -Dexec.mainClass="net.degiere.ticker.Main"
+* mvn test
+* mvn jar:jar
+* mvn exec:java -Dexec.mainClass="net.degiere.ticker.Main"
