@@ -4,7 +4,9 @@ FinViz is a free stock screener with an export feature. This utility project dow
 other applications that need a starting index of stocks by ticker symbol. The project also provides an in memory repository implementation for
 querying stocks by ticker symbol, sector, country, etc.
 
-See also: http://finviz.com/screener.ashx
+See also:
+* http://finviz.com/?a=49212447
+* http://finviz.com/screener.ashx
 
 Resources
 =========
