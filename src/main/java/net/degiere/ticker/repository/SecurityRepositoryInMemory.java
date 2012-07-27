@@ -12,6 +12,7 @@ import java.util.Set;
 import net.degiere.ticker.Security;
 import net.degiere.ticker.finviz.Constants;
 import net.degiere.ticker.finviz.Parser;
+import net.degiere.ticker.io.FileDownloader;
 
 public class SecurityRepositoryInMemory implements SecurityRepository {
 	
@@ -22,6 +23,7 @@ public class SecurityRepositoryInMemory implements SecurityRepository {
 	private static Map<String, Set<Integer>> indexByCountry;
 	
 	public SecurityRepositoryInMemory() {
+		download();
 		load();
 		mapTickers();
 		mapSectors();
@@ -77,6 +79,16 @@ public class SecurityRepositoryInMemory implements SecurityRepository {
 
 	public Set<String> findAllCountries() {
 		return indexByCountry.keySet();
+	}
+	
+	private void download() {
+		File f = Constants.outputFile;
+		if (f.exists()) return;
+        try {
+            new FileDownloader().fetch(Constants.exportUrl, Constants.outputFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 
 	private void load() {
